@@ -300,7 +300,7 @@ function drawStartScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(52);
-  text("BLOB BRAWL", width / 2, height / 2 - 60);
+  text("FISH BRAWL", width / 2, height / 2 - 60);
 
   // Subtitle
   fill(160);
