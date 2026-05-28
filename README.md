@@ -1,6 +1,6 @@
-##Project Title: Side Quest Week 2
+## Project Title: Side Quest Week 2
 
-##Setup and Interaction Instructions
+## Setup and Interaction Instructions
 
 To run the sketch locally, open `index.html` in Google Chrome using Live Server.
 
@@ -24,7 +24,7 @@ Sound files must be present in `assets/sounds/` before running:
 
 Press **ENTER** to start or rematch.
 
-Assets
+## Assets
 
 | File | Source |
 |------|--------|
@@ -36,7 +36,7 @@ Assets
 | `assets/images/hit-sound.mp3` | Youtube Royalty Free Artists, Retro Video Game Arcade 8 Bit Sound Effects |
 | `assets/images/level.mp3` | Youtube Royalty Free Artists, Retro Video Game Arcade 8 Bit Sound Effects |
 
-References
+## References
 
 [1] Royalty Free Artists. 2020. Retro Video Game Arcade 8 Bit Sound Effects. YouTube. Retrieved May 27, 2026 from https://www.youtube.com/watch?v=zXKcybzvj7Y
 
