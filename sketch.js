@@ -6,6 +6,7 @@ let gameState = STATE_START;
 let winner = null; // stores "P1" or "P2" when the game ends
 
 let arenaBackground;
+let startingBackground;
 
 //sounds
 let winSound;
@@ -176,50 +177,48 @@ class Fighter {
   // push() and pop() isolate drawing styles to this method.
   // ----------------------------------------------------------
   draw() {
-    push();
+  push();
 
-    // Shield ring when blocking
-    if (this.isBlocking) {
-      noFill();
-      stroke(255, 255, 255, 150);
-      strokeWeight(3);
-      ellipse(this.x, this.y, (this.r + 16) * 2, (this.r + 16) * 2);
-    }
-
-    // Draw fist when attacking
-    if (this.isAttacking) {
-      fill(this.hitFlash > 0 ? color(255) : this.colour);
-      noStroke();
-      ellipse(this.getPunchX(), this.y, 20, 20);
-    }
-
-    // Blob body — flash white when hit, normal colour otherwise
-    fill(this.hitFlash > 0 ? color(255) : this.colour);
-    noStroke();
-
-    beginShape();
-    let numPoints = 48;
-    for (let i = 0; i < numPoints; i++) {
-      let angle = (TWO_PI / numPoints) * i;
-      let noiseVal = noise(
-        cos(angle) * 0.8 + this.blobT,
-        sin(angle) * 0.8 + this.blobT,
-      );
-      let r = this.r + map(noiseVal, 0, 1, -7, 7);
-      vertex(this.x + cos(angle) * r, this.y + sin(angle) * r);
-    }
-    endShape(CLOSE);
-
-    // Eyes
-    fill(10);
-    ellipse(this.x - 9, this.y - 7, 8, 8);
-    ellipse(this.x + 9, this.y - 7, 8, 8);
-
-    pop();
-
-    // Advance blob animation each frame
-    this.blobT += 0.015;
+  if (this.isBlocking) {
+    noFill();
+    stroke(255, 255, 255, 150);
+    strokeWeight(3);
+    ellipse(this.x, this.y, (this.r + 16) * 2, (this.r + 16) * 2);
   }
+
+  if (this.isAttacking) {
+    fill(255);
+    noStroke();
+    ellipse(this.getPunchX(), this.y, 18, 18);
+  }
+
+  let facing = this.punchDir;
+  if (abs(this.vx) > 0.1) {
+    facing = this.vx > 0 ? 1 : -1;
+  }
+
+  translate(this.x, this.y);
+  scale(facing, 1);
+
+  let fishColor = this.hitFlash > 0 ? color(255) : this.colour;
+
+  noStroke();
+  fill(fishColor);
+
+  // body
+  ellipse(0, 0, 60, 35);
+
+  // tail
+  triangle(-25, 0, -45, -14, -45, 14);
+
+  // eye
+  fill(255);
+  ellipse(15, -5, 10, 10);
+  fill(0);
+  ellipse(17, -5, 4, 4);
+
+  pop();
+}
 }
 
 let fighter1, fighter2;
@@ -232,6 +231,7 @@ function preload() {
   bgMusic  = loadSound("assets/sound/bgmusic.m4a");
 
   arenaBackground = loadImage("assets/images/background.png");
+  startingBackground = loadImage("assets/images/beginning.png");
 }
 
 function setup() {
@@ -294,6 +294,8 @@ function endGame(winnerLabel) {
 }
 
 function drawStartScreen() {
+  image(startingBackground, 0, 0, width, height);
+
   // Title
   fill(255);
   textAlign(CENTER);
