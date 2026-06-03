@@ -32,9 +32,9 @@ Press **ENTER** to start or rematch.
 | `assets/images/salmonrice.png` | Created by Grace Liang |
 | `assets/images/soysauce.png` | Created by Grace Liang |
 | `assets/images/sushiroll.png` | Created by Grace Liang |
-| `assets/sound/bgmusic..m4a` | Adobe Stock |
-| `assets/images/hit-sound.mp3` | Youtube Royalty Free Artists, Retro Video Game Arcade 8 Bit Sound Effects |
-| `assets/images/level.mp3` | Youtube Royalty Free Artists, Retro Video Game Arcade 8 Bit Sound Effects |
+| `assets/sound/bgmusic..m4a` [2]| Adobe Stock |
+| `assets/images/hit-sound.mp3` [1]| Youtube Royalty Free Artists, Retro Video Game Arcade 8 Bit Sound Effects |
+| `assets/images/level.mp3` [1]| Youtube Royalty Free Artists, Retro Video Game Arcade 8 Bit Sound Effects |
 
 ## References
 
